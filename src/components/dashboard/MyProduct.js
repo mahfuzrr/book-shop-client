@@ -10,7 +10,12 @@ export default function MyProduct({ fetchh }) {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/get-seller-products/${user?.uid}`)
+            fetch(`http://localhost:5000/get-seller-products/${user?.uid}`, {
+                method: 'GET',
+                headers: {
+                    authorization: localStorage.getItem('token'),
+                },
+            })
                 .then((result) => {
                     result.json().then((upResult) => {
                         if (upResult?.success) {
@@ -32,6 +37,9 @@ export default function MyProduct({ fetchh }) {
     const deleteProduct = (id) => {
         fetch(`http://localhost:5000/delete-product-seller/${id}`, {
             method: 'DELETE',
+            headers: {
+                authorization: localStorage.getItem('token'),
+            },
         })
             .then((res) => {
                 res.json().then((upRes) => {
@@ -64,6 +72,7 @@ export default function MyProduct({ fetchh }) {
             body: JSON.stringify(reqObject),
             headers: {
                 'Content-Type': 'application/json',
+                authorization: localStorage.getItem('token'),
             },
         })
             .then((res) => {

@@ -5,7 +5,12 @@ export default function Advertise() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/get-advertise-items')
+        fetch('http://localhost:5000/get-advertise-items', {
+            method: 'GET',
+            headers: {
+                authorization: localStorage.getItem('token'),
+            },
+        })
             .then((result) => {
                 result.json().then((upResult) => {
                     if (upResult?.success) {

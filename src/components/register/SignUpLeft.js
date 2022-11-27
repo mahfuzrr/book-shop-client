@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -15,6 +16,34 @@ export default function SignUpLeft() {
 
     const navigate = useNavigate();
 
+    const handleJWT = (uId) => {
+        const obj = {
+            uId,
+        };
+
+        fetch('http://localhost:5000/jwt-token', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => {
+                res.json()
+                    .then((upRes) => {
+                        localStorage.setItem('token', upRes?.token);
+                    })
+                    .catch(() => {
+                        toast.error('Server Error', {
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
+                    });
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
+
     const handleOnSubmit = (e) => {
         e.preventDefault();
 
@@ -31,7 +60,6 @@ export default function SignUpLeft() {
                         // eslint-disable-next-line no-unused-vars
                         .then((updatedUser) => {
                             reqObject.userId = user.user.uid;
-                            console.log(reqObject);
                             fetch('http://localhost:5000/register', {
                                 method: 'POST',
                                 body: JSON.stringify(reqObject),
@@ -41,7 +69,7 @@ export default function SignUpLeft() {
                             })
                                 .then((result) => {
                                     result.json().then((upRes) => {
-                                        console.log(upRes);
+                                        handleJWT(user.user.uid);
                                     });
                                 })
                                 .catch((err) => {

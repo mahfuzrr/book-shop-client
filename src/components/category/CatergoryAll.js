@@ -24,7 +24,13 @@ export default function CategoryAll() {
     const [role] = useRole(user?.uid);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/get-specific-products/${id}`)
+        fetch(`http://localhost:5000/get-specific-products/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: localStorage.getItem('token'),
+            },
+        })
             .then((result) => {
                 result.json().then((upResult) => {
                     if (upResult?.success) {
@@ -72,6 +78,7 @@ export default function CategoryAll() {
             body: JSON.stringify(obj),
             headers: {
                 'Content-Type': 'application/json',
+                authorization: localStorage.getItem('token'),
             },
         })
             .then((result) => {

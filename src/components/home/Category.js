@@ -9,7 +9,12 @@ export default function Category() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/get-all-category')
+        fetch('http://localhost:5000/get-all-category', {
+            method: 'GET',
+            headers: {
+                authorization: localStorage.getItem('token'),
+            },
+        })
             .then((data) => {
                 data.json().then((result) => {
                     if (result?.success) {

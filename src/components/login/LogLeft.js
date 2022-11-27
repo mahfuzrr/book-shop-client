@@ -18,7 +18,7 @@ export default function LogLeft() {
             uId,
         };
 
-        fetch('https://dream-travel.vercel.app/jwt-token', {
+        fetch('http://localhost:5000/jwt-token', {
             method: 'POST',
             body: JSON.stringify(obj),
             headers: {
@@ -47,7 +47,7 @@ export default function LogLeft() {
         signInUsingEmail(email, password)
             // eslint-disable-next-line no-unused-vars
             .then((user) => {
-                // handleJWT(user?.user?.uid);
+                handleJWT(user?.user?.uid);
                 navigate(from, { replace: true });
             })
             .catch((err) => {
@@ -67,7 +67,7 @@ export default function LogLeft() {
         signInGoogle()
             // eslint-disable-next-line no-unused-vars
             .then((user) => {
-                // handleJWT(user?.user?.uid);
+                handleJWT(user?.user?.uid);
 
                 const reqObject = {
                     userId: user?.user?.uid,

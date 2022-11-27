@@ -55,6 +55,7 @@ export default function AddProduct() {
                             body: JSON.stringify(reqObject),
                             headers: {
                                 'Content-Type': 'application/json',
+                                authorization: localStorage.getItem('token'),
                             },
                         }).then((result) => {
                             result.json().then((result1) => {

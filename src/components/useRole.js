@@ -5,7 +5,12 @@ export default function useRole(uid) {
 
     useEffect(() => {
         if (uid) {
-            fetch(`http://localhost:5000/get-user-role/${uid}`).then((res) => {
+            fetch(`http://localhost:5000/get-user-role/${uid}`, {
+                method: 'GET',
+                headers: {
+                    authorization: localStorage.getItem('token'),
+                },
+            }).then((res) => {
                 res.json().then((upRes) => {
                     if (upRes?.success) {
                         setRole(upRes.message);

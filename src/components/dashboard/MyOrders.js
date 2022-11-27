@@ -10,7 +10,12 @@ export default function MyOrders() {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/get-my-orders/${user.uid}`)
+            fetch(`http://localhost:5000/get-my-orders/${user.uid}`, {
+                method: 'GET',
+                headers: {
+                    authorization: localStorage.getItem('token'),
+                },
+            })
                 .then((result) => {
                     result.json().then((data) => {
                         if (data?.success) {
