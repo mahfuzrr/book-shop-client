@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import noDataImage from '../../assets/NoData.svg';
 import { AuthContext } from '../../context/UserContext';
+import useRole from '../useRole';
 
 export default function CategoryAll() {
     const [toggle, setToggle] = useState(false);
@@ -20,6 +21,7 @@ export default function CategoryAll() {
     const { id } = useParams();
 
     const { user } = useContext(AuthContext);
+    const [role] = useRole(user?.uid);
 
     useEffect(() => {
         fetch(`http://localhost:5000/get-specific-products/${id}`)
@@ -194,6 +196,7 @@ export default function CategoryAll() {
                                             <button
                                                 type="button"
                                                 className="btn advertise-card-btn mt-3 text-center"
+                                                disabled={role !== 'buyer'}
                                                 onClick={() =>
                                                     setModalValue(
                                                         data?.productName,
@@ -202,7 +205,9 @@ export default function CategoryAll() {
                                                     )
                                                 }
                                             >
-                                                Book Now
+                                                {role === 'buyer'
+                                                    ? 'Book Now'
+                                                    : 'Buyer are allowed to buy'}
                                             </button>
                                         </div>
                                     </div>

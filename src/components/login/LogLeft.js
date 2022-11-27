@@ -13,6 +13,34 @@ export default function LogLeft() {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
+    const handleJWT = (uId) => {
+        const obj = {
+            uId,
+        };
+
+        fetch('https://dream-travel.vercel.app/jwt-token', {
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => {
+                res.json()
+                    .then((upRes) => {
+                        localStorage.setItem('token', upRes?.token);
+                    })
+                    .catch(() => {
+                        toast.error('Server Error', {
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
+                    });
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 

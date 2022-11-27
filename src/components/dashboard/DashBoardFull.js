@@ -7,7 +7,6 @@ import AddProduct from './AddProduct';
 import AllBuyers from './AllBuyers';
 import AllSeller from './AllSeller';
 import MyOrders from './MyOrders';
-import MyProduct from './MyProduct';
 import ReportedItem from './ReportedItem';
 
 export default function DashBoardFull() {
@@ -60,7 +59,7 @@ export default function DashBoardFull() {
                 >
                     My products
                 </button>
-                <button
+                {/* <button
                     className="nav-link"
                     id="v-pills-change-tab"
                     data-bs-toggle="pill"
@@ -71,16 +70,11 @@ export default function DashBoardFull() {
                     aria-selected="false"
                 >
                     My buyers
-                </button>
+                </button> */}
             </>
         );
 
-        mainComp = (
-            <>
-                <AddProduct />
-                <MyProduct />
-            </>
-        );
+        mainComp = <AddProduct />;
     } else if (role === 'admin') {
         buttonComp = (
             <>

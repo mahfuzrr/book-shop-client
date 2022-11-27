@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
 
-export default function MyProduct() {
+export default function MyProduct({ fetchh }) {
     const [products, setProducts] = useState([]);
     const [refetch, setRefetch] = useState(false);
     const { user } = useContext(AuthContext);
@@ -27,7 +27,7 @@ export default function MyProduct() {
                     console.log(err.message);
                 });
         }
-    }, [user, refetch]);
+    }, [user, refetch, fetchh]);
 
     const deleteProduct = (id) => {
         fetch(`http://localhost:5000/delete-product-seller/${id}`, {
@@ -38,6 +38,39 @@ export default function MyProduct() {
                     if (upRes.success) {
                         setRefetch(true);
                         toast.success('Deleted Successful!', {
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 1000,
+                        });
+                    } else {
+                        toast.error(upRes?.message, {
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 1000,
+                        });
+                    }
+                });
+            })
+            .catch((err) => {
+                toast.error(err.message, {
+                    position: toast.POSITION.TOP_RIGHT,
+                    autoClose: 1000,
+                });
+            });
+    };
+
+    const handleAdvertise = (productId) => {
+        const reqObject = { id: productId };
+        fetch('http://localhost:5000/advertise-items', {
+            method: 'PATCH',
+            body: JSON.stringify(reqObject),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => {
+                res.json().then((upRes) => {
+                    if (upRes?.success) {
+                        setRefetch(true);
+                        toast.success('Advertised successfully!', {
                             position: toast.POSITION.TOP_RIGHT,
                             autoClose: 1000,
                         });
@@ -97,6 +130,7 @@ export default function MyProduct() {
                                         type="button"
                                         className="btn create-advirtise-btn"
                                         disabled={product?.isBooked}
+                                        onClick={() => handleAdvertise(product?._id)}
                                     >
                                         Advertise
                                     </button>
