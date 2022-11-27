@@ -1,0 +1,98 @@
+:root {
+    --primary: #f8792f;
+    --navBg: #FEFEFE;
+    --text1: #5E5E5E;
+    --border: #cccccc;
+}
+
+#q-404-body {
+    height: auto;
+}
+
+#notFound-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(20%, 35%);
+}
+
+#notFound-right {
+    width: 50%;
+}
+
+#notFound-left h1 {
+    font-size: 80px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+#notFound-left h2 {
+    font-size: 50px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+#notFound-right img {
+    pointer-events: none;
+    margin-top: 10%;
+    user-select: none;
+    width: 90%;
+}
+
+#notFound-left p {
+    color: gray;
+    font-size: 14px;
+}
+
+#notFound-button {
+    background-color: var(--primary);
+    color: white;
+    width: 150px;
+    font-size: 14px;
+    border: none;
+}
+
+#notFound-button:active {
+    transform: scale(0.98);
+}
+
+#notFound-button:focus {
+    box-shadow: none;
+}
+
+
+@media only screen and (max-width: 765px) {
+
+    #notFound-left {
+        width: 100%;
+        transform: translate(20%, 35%);
+    }
+
+    #notFound-right {
+        width: 100%;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    #notFound-left h1 {
+        font-size: 50px;
+    }
+
+    #notFound-left h2 {
+        font-size: 20px;
+        padding: 0 !important;
+    }
+
+    #notFound-right {
+        margin-top: 25%;
+        padding: 0 !important;
+    }
+
+    #q-404-body {
+        height: 100vh;
+        padding: 0 !important;
+    }
+
+}

@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from './components/NotFound';
 import PrivateRoute from './components/PrivateRoute';
+import Blog from './pages/Blog';
 import Category from './pages/Category';
 import Dasbord from './pages/Dashboard';
 import Home from './pages/Home';
@@ -22,7 +24,7 @@ function App() {
                         </PrivateRoute>
                     }
                 />
-                <Route path="/blog" element={<div>Blog</div>} />
+                <Route path="/blog" element={<Blog />} />
                 <Route
                     path="/category/:id"
                     element={
@@ -31,7 +33,7 @@ function App() {
                         </PrivateRoute>
                     }
                 />
-                <Route path="*" element={<div>Error page</div>} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );
