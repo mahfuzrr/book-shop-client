@@ -1,0 +1,150 @@
+:root {
+    --primary: #f8792f;
+    --navBg: #FEFEFE;
+    --text1: #5E5E5E;
+    --border: #cccccc;
+}
+
+#dashboard-all-content {
+    margin-top: 5%;
+}
+
+#v-pills-tab1 {
+    width: 15%;
+}
+
+#v-pills-tabContent {
+    margin-left: 5%;
+    width: 80%;
+}
+
+/* my product */
+#admin-seller button {
+    background-color: red;
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 4px 15px;
+    color: white;
+}
+
+
+#admin-seller button:focus {
+    box-shadow: none;
+}
+
+#admin-seller button:active {
+    transform: scale(0.98);
+}
+
+#admin-seller thead>tr>th {
+    background-color: rgba(248, 121, 47, 0.3);
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+#admin-seller tbody td,
+th {
+    border: 1px solid var(--border);
+    text-align: center;
+    padding: 11px;
+}
+
+#admin-seller tbody td {
+    font-size: 0.87rem;
+}
+
+#admin-seller tbody td>img {
+    width: 30px;
+    height: 30px;
+}
+
+#admin-buyer button {
+    background-color: red;
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 4px 15px;
+    color: white;
+}
+
+
+#admin-buyer button:focus {
+    box-shadow: none;
+}
+
+#admin-buyer button:active {
+    transform: scale(0.98);
+}
+
+#admin-buyer thead>tr>th {
+    background-color: rgba(248, 121, 47, 0.3);
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+#admin-buyer tbody td,
+th {
+    border: 1px solid var(--border);
+    text-align: center;
+    padding: 11px;
+}
+
+#admin-buyer tbody td {
+    font-size: 0.87rem;
+}
+
+#admin-buyer tbody td>img {
+    width: 30px;
+    height: 30px;
+}
+
+#reported-item .single-report {
+    width: 270px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin: 0;
+}
+
+#reported-item .single-report .report-upper-image img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 130px;
+    width: 100%;
+}
+
+#reported-item .single-report .report-lower .report-book-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#reported-item .single-report .report-lower .eport-location {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text1);
+}
+
+#reported-item .single-report .report-lower .report-lower-text .report-card-common-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+#reported-item .single-report .report-lower .report-lower-text .report-card-posted {
+    font-size: 0.8rem;
+    color: var(--text1);
+}
+
+#reported-item .single-report .report-lower .report-lower-text .report-card-btn {
+    font-size: 14px;
+    background-color: #FF4545;
+    width: 100%;
+    font-weight: 500;
+    color: white;
+}
+
+#reported-item .single-report .report-lower .report-lower-text .report-card-btn:focus {
+    box-shadow: none;
+}
+
+#reported-item .single-report .report-lower .report-lower-text .report-card-btn:active {
+    transform: scale(0.989);
+}

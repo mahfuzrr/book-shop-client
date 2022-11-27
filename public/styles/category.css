@@ -1,0 +1,153 @@
+:root {
+    --primary: #f8792f;
+    --navBg: #FEFEFE;
+    --text1: #5E5E5E;
+    --border: #cccccc;
+}
+
+#all-category-content {
+    margin-top: 5%;
+}
+
+#all-category-content .advertise-main-contents-single-card {
+    width: 300px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin: 0;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-card-image img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 130px;
+    width: 100%;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .advertise-book-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .advertise-location {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text1);
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-common-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-posted {
+    font-size: 0.8rem;
+    color: var(--text1);
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-btn {
+    font-size: 14px;
+    background-color: var(--primary);
+    width: 100%;
+    font-weight: 500;
+    color: white;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-btn:focus {
+    box-shadow: none;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-btn:active {
+    transform: scale(0.989);
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .upper-section .report-btn {
+    font-size: 11px;
+    background-color: red;
+    color: white;
+    padding: 4px 5px;
+    font-weight: 400;
+    border-radius: 2px;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .upper-section .report-btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .upper-section .report-btn:active {
+    transform: scale(0.98);
+}
+
+#category-modal {
+    width: 40%;
+    background-color: white;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+    padding: 2rem 1rem;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 100;
+    top: 15%;
+    left: 30%;
+}
+
+#category-modal form input {
+    border-radius: 3px;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+#category-modal form {
+    margin-top: 3%;
+}
+
+#category-modal form input:focus {
+    box-shadow: none;
+    border: 1px solid var(--primary);
+}
+
+#category-modal form button {
+    background-color: var(--primary);
+    padding: 5px 20px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#category-modal form button:focus {
+    box-shadow: none;
+}
+
+#category-modal form button:active {
+    transform: scale(0.98);
+}
+
+#category-modal span {
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    cursor: pointer;
+    color: red;
+}
+
+#all-category .open {
+    display: block;
+}
+
+#all-category .close {
+    display: none;
+}
+
+@media only screen and (max-width: 400px) {
+    #category-modal {
+        width: 90%;
+        left: 3%;
+    }
+
+    #all-category-content {
+        justify-content: center;
+        margin: 5% 0 !important;
+    }
+}

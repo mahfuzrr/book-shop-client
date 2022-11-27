@@ -1,0 +1,258 @@
+:root {
+    --primary: #f8792f;
+    --navBg: #FEFEFE;
+    --text1: #5E5E5E;
+    --border: #cccccc;
+}
+
+#dashboard-all-content {
+    margin-top: 5%;
+}
+
+#v-pills-tab {
+    width: 12%;
+}
+
+#v-pills-tabContent {
+    margin-left: 5%;
+    width: 80%;
+}
+
+#dashboard-all-content .nav-pills .nav-link {
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 5px 15px;
+    color: black;
+    margin-top: 10px !important;
+}
+
+#dashboard-all-content .nav-pills .active {
+    background-color: rgba(248, 121, 47, 0.12);
+    color: rgba(248, 121, 47, 1);
+}
+
+#dashboard-all-content>div .nav-pills {
+    padding-right: 10px;
+    border-right: 1.5px solid rgba(248, 121, 47, 0.5);
+}
+
+#add-product-form input {
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 5px;
+    padding: 8px 5px;
+    width: 100%;
+    color: #000000;
+    font-size: 14px;
+    padding-left: 20px;
+    box-shadow: none;
+}
+
+#add-product-form .form-group {
+    width: auto;
+    height: auto;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+#add-product-form input:focus+label,
+#add-product-form input:valid+label {
+    font-size: 12px;
+    color: var(--primary);
+    top: -4px;
+    left: 10px;
+    background: white;
+    padding: 0px 5px 0px 5px;
+}
+
+#add-product-form .form-group label {
+    font-size: 12px;
+    color: rgb(159, 159, 159);
+    padding: 14px;
+    position: absolute;
+    top: -7%;
+    left: 0;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    pointer-events: none;
+}
+
+#add-product-form input:focus {
+    outline: none;
+    border: 1px solid var(--primary);
+}
+
+#add-product-form {
+    width: 50%;
+    margin: auto;
+}
+
+#add-product-form .product-add-btn {
+    background-color: var(--primary);
+    padding: 5px 25px;
+    font-size: 15px;
+    color: white;
+    border-radius: 3px;
+}
+
+#add-product-form .product-add-btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+#add-product-form .product-add-btn:active {
+    transform: scale(0.987);
+}
+
+#add-product-form ::-webkit-file-upload-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+/* my product */
+#my-product-table .create-advirtise-btn {
+    background-color: #0be881;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 4px 15px;
+    color: white;
+}
+
+#my-product-table .delete-prod {
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 4px 15px;
+    color: white;
+}
+
+
+#my-product-table button:focus {
+    box-shadow: none;
+}
+
+#my-product-table button:active {
+    transform: scale(0.98);
+}
+
+#my-product-table thead>tr>th {
+    background-color: rgba(248, 121, 47, 0.3);
+    border: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+#my-product-table tbody td,
+th {
+    border: 1px solid var(--border);
+    text-align: center;
+    padding: 11px;
+}
+
+#my-product-table tbody td {
+    font-size: 0.87rem;
+}
+
+#my-product-table tbody tr .available {
+    color: #0be881;
+    font-weight: 500;
+}
+
+#my-product-table tbody tr .sold {
+    color: red;
+    font-weight: 500;
+}
+
+#my-order .advertise-main-contents-single-card {
+    width: 300px;
+    background-color: white;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin: 0;
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-card-image img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 130px;
+    width: 100%;
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .advertise-book-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-upper-text .advertise-location {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text1);
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-common-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-posted {
+    font-size: 0.8rem;
+    color: var(--text1);
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-btn {
+    font-size: 14px;
+    background-color: var(--primary);
+    width: 100%;
+    font-weight: 500;
+    color: white;
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-btn:focus {
+    box-shadow: none;
+}
+
+#my-order .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-btn:active {
+    transform: scale(0.989);
+}
+
+@media only screen and (max-width: 991px) {
+    #dashboard-responsive {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #v-pills-tab {
+        width: 100%;
+        margin-bottom: 7%;
+    }
+
+    #v-pills-tabContent {
+        width: 90%;
+    }
+
+    #dashboard-all-content>div .nav-pills {
+        padding-right: 0px;
+        border-right: none;
+    }
+
+    #add-product-form {
+        width: 90%;
+    }
+
+    #v-pills-my-product {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #my-product-table .delete-prod {
+        border-radius: 2px;
+        font-size: 12px;
+        padding: 4px 15px;
+        color: white;
+        margin-top: 5% !important;
+    }
+}
