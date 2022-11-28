@@ -11,7 +11,7 @@ export default function ReportedItem() {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/get-reported-items/${user.uid}`, {
+            fetch(`https://book-server-six.vercel.app/get-reported-items/${user.uid}`, {
                 method: 'GET',
                 headers: {
                     authorization: localStorage.getItem('token'),
@@ -33,7 +33,7 @@ export default function ReportedItem() {
     }, [user, refetch]);
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-product-seller/${id}`, {
+        fetch(`https://book-server-six.vercel.app/delete-product-seller/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: localStorage.getItem('token'),

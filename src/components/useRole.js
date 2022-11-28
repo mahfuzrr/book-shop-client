@@ -5,7 +5,7 @@ export default function useRole(uid) {
 
     useEffect(() => {
         if (uid) {
-            fetch(`http://localhost:5000/get-user-role/${uid}`, {
+            fetch(`https://book-server-six.vercel.app/get-user-role/${uid}`, {
                 method: 'GET',
                 headers: {
                     authorization: localStorage.getItem('token'),

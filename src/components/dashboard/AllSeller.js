@@ -12,7 +12,7 @@ export default function AllSeller() {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/get-all-seller/${user.uid}`, {
+            fetch(`https://book-server-six.vercel.app/get-all-seller/${user.uid}`, {
                 method: 'GET',
                 headers: {
                     authorization: localStorage.getItem('token'),
@@ -34,7 +34,7 @@ export default function AllSeller() {
     const handleDeleteUser = (userid) => {
         const { uid } = user;
 
-        fetch(`http://localhost:5000/delete-user/${uid}/${userid}`, {
+        fetch(`https://book-server-six.vercel.app/delete-user/${uid}/${userid}`, {
             method: 'DELETE',
             headers: {
                 authorization: localStorage.getItem('token'),
@@ -68,7 +68,7 @@ export default function AllSeller() {
         const obj = {
             uId,
         };
-        fetch(`http://localhost:5000/verify-user/${user.uid}`, {
+        fetch(`https://book-server-six.vercel.app/verify-user/${user.uid}`, {
             method: 'PATCH',
             body: JSON.stringify(obj),
             headers: {

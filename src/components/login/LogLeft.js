@@ -19,7 +19,7 @@ export default function LogLeft() {
             uId,
         };
 
-        fetch('http://localhost:5000/jwt-token', {
+        fetch('https://book-server-six.vercel.app/jwt-token', {
             method: 'POST',
             body: JSON.stringify(obj),
             headers: {
@@ -78,7 +78,7 @@ export default function LogLeft() {
                     role: 'buyer',
                 };
 
-                fetch('http://localhost:5000/register', {
+                fetch('https://book-server-six.vercel.app/register', {
                     method: 'POST',
                     body: JSON.stringify(reqObject),
                     headers: {

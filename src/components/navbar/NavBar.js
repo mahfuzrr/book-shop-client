@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
+import { MdMenu, MdVerified } from 'react-icons/md';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { MdVerified, MdMenu } from 'react-icons/md';
 import userImage from '../../assets/user.png';
 import { AuthContext } from '../../context/UserContext';
 
@@ -16,7 +16,7 @@ export default function NavBar() {
     useEffect(() => {
         setUrl(window.location.pathname);
         if (user) {
-            fetch(`http://localhost:5000/get-verify-info/${user.uid}`, {
+            fetch(`https://book-server-six.vercel.app/get-verify-info/${user.uid}`, {
                 method: 'GET',
                 headers: {
                     authorization: localStorage.getItem('token'),

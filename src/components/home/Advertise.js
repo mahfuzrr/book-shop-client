@@ -48,7 +48,7 @@ export default function Advertise() {
         e.preventDefault();
         const obj = { id: bookId, phone, location, uid: user?.uid };
 
-        fetch('http://localhost:5000/update-booked-product', {
+        fetch('https://book-server-six.vercel.app/update-booked-product', {
             method: 'PATCH',
             body: JSON.stringify(obj),
             headers: {
@@ -84,7 +84,7 @@ export default function Advertise() {
     const handleReport = (bookId1) => {
         const reqObj = { id: bookId1, uid: user.uid };
 
-        fetch('http://localhost:5000/report-to-admin', {
+        fetch('https://book-server-six.vercel.app/report-to-admin', {
             method: 'PATCH',
             body: JSON.stringify(reqObj),
             headers: {
@@ -111,7 +111,7 @@ export default function Advertise() {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/get-advertise-items', {
+        fetch('https://book-server-six.vercel.app/get-advertise-items', {
             method: 'GET',
             headers: {
                 authorization: localStorage.getItem('token'),

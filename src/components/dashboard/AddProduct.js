@@ -50,7 +50,7 @@ export default function AddProduct() {
                     if (upRes?.success) {
                         reqObject.photoURL = upRes?.data?.url;
 
-                        fetch('http://localhost:5000/add-products', {
+                        fetch('https://book-server-six.vercel.app/add-products', {
                             method: 'POST',
                             body: JSON.stringify(reqObject),
                             headers: {

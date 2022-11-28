@@ -10,7 +10,7 @@ export default function MyProduct({ fetchh }) {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/get-seller-products/${user?.uid}`, {
+            fetch(`https://book-server-six.vercel.app/get-seller-products/${user?.uid}`, {
                 method: 'GET',
                 headers: {
                     authorization: localStorage.getItem('token'),
@@ -35,7 +35,7 @@ export default function MyProduct({ fetchh }) {
     }, [user, refetch, fetchh]);
 
     const deleteProduct = (id) => {
-        fetch(`http://localhost:5000/delete-product-seller/${id}`, {
+        fetch(`https://book-server-six.vercel.app/delete-product-seller/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: localStorage.getItem('token'),
@@ -67,7 +67,7 @@ export default function MyProduct({ fetchh }) {
 
     const handleAdvertise = (productId) => {
         const reqObject = { id: productId };
-        fetch('http://localhost:5000/advertise-items', {
+        fetch('https://book-server-six.vercel.app/advertise-items', {
             method: 'PATCH',
             body: JSON.stringify(reqObject),
             headers: {

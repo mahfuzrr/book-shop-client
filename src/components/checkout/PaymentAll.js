@@ -16,7 +16,7 @@ export default function PaymentAll() {
     useEffect(() => {
         console.log(bookid);
         if (bookid) {
-            fetch(`http://localhost:5000/get-product-info/${bookid}`, {
+            fetch(`https://book-server-six.vercel.app/get-product-info/${bookid}`, {
                 method: 'GET',
                 headers: {
                     authorization: localStorage.getItem('token'),

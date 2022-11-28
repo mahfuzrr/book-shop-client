@@ -21,7 +21,7 @@ export default function SignUpLeft() {
             uId,
         };
 
-        fetch('http://localhost:5000/jwt-token', {
+        fetch('https://book-server-six.vercel.app/jwt-token', {
             method: 'POST',
             body: JSON.stringify(obj),
             headers: {
@@ -60,7 +60,7 @@ export default function SignUpLeft() {
                         // eslint-disable-next-line no-unused-vars
                         .then((updatedUser) => {
                             reqObject.userId = user.user.uid;
-                            fetch('http://localhost:5000/register', {
+                            fetch('https://book-server-six.vercel.app/register', {
                                 method: 'POST',
                                 body: JSON.stringify(reqObject),
                                 headers: {

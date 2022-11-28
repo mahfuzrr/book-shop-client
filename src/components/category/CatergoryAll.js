@@ -24,7 +24,7 @@ export default function CategoryAll() {
     const [role] = useRole(user?.uid);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/get-specific-products/${id}`, {
+        fetch(`https://book-server-six.vercel.app/get-specific-products/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default function CategoryAll() {
         e.preventDefault();
         const obj = { id: bookId, phone, location, uid: user?.uid };
 
-        fetch('http://localhost:5000/update-booked-product', {
+        fetch('https://book-server-six.vercel.app/update-booked-product', {
             method: 'PATCH',
             body: JSON.stringify(obj),
             headers: {
@@ -110,7 +110,7 @@ export default function CategoryAll() {
     const handleReport = (bookId1) => {
         const reqObj = { id: bookId1, uid: user.uid };
 
-        fetch('http://localhost:5000/report-to-admin', {
+        fetch('https://book-server-six.vercel.app/report-to-admin', {
             method: 'PATCH',
             body: JSON.stringify(reqObj),
             headers: {

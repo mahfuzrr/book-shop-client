@@ -72,7 +72,7 @@ export default function CheckOutForm({ data }) {
                 id: data._id,
             };
 
-            fetch('http://localhost:5000/update-payment', {
+            fetch('https://book-server-six.vercel.app/update-payment', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ export default function CheckOutForm({ data }) {
             };
             console.log(obj);
 
-            fetch('http://localhost:5000/create-payment-intent', {
+            fetch('https://book-server-six.vercel.app/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
