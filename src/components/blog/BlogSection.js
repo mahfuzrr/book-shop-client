@@ -1,6 +1,6 @@
 export default function BlogSection() {
     return (
-        <div className="container-fluid overflow-hidden min-vh-100" id="blog-content">
+        <div className="container-fluid overflow-hidden min-vh-100 pb-5" id="blog-content">
             <div className="container" id="blog-wrapper">
                 <h3>Blog</h3>
                 <div className="accordion" id="blog">
@@ -14,7 +14,8 @@ export default function BlogSection() {
                                 aria-expanded="true"
                                 aria-controls="collapseOne"
                             >
-                                Difference between SQL and NoSQL
+                                What are the different ways to manage a state in a React
+                                application?
                             </button>
                         </h2>
                         <div
@@ -24,10 +25,44 @@ export default function BlogSection() {
                             data-bs-parent="#blog"
                         >
                             <div className="accordion-body">
-                                SQL is the programming language used to interface with relational
-                                databases. (Relational databases model data as records in rows and
-                                tables with logical links between them). NoSQL is a class of DBMs
-                                that are non-relational and generally do not use SQL.
+                                The Four Kinds of React State to Manage When we talk about state in
+                                our applications, it&apos;s important to be clear about what types
+                                of state actually matter. There are four main types of state you
+                                need to properly manage in your React apps: Lets cover each of these
+                                in detail:
+                                <ul>
+                                    <li>Local state</li>
+                                    <li>Global state</li>
+                                    <li>Server state</li>
+                                    <li>URL state</li>
+                                </ul>
+                                Local (UI) state Local state is data we manage in one or another
+                                component. Local state is most often managed in React using the
+                                useState hook. For example, local state would be needed to show or
+                                hide a modal component or to track values for a form component, such
+                                as form submission, when the form is disabled and the values of a
+                                form&apos;s inputs. Global (UI) state Global state is data we manage
+                                across multiple components. Global state is necessary when we want
+                                to get and update data anywhere in our app, or in multiple
+                                components at least. A common example of global state is
+                                authenticated user state. If a user is logged into our app, it is
+                                necessary to get and change their data throughout our application.
+                                Sometimes state we think should be local might become global. Server
+                                state Data that comes from an external server that must be
+                                integrated with our UI state. Server state is a simple concept, but
+                                can be hard to manage alongside all of our local and global UI
+                                state. There are several pieces of state that must be managed every
+                                time you fetch or update data from an external server, including
+                                loading and error state. Fortunately there are tools such as SWR and
+                                React Query that make managing server state much easier. URL state
+                                Data that exists on our URLs, including the pathname and query
+                                parameters. URL state is often missing as a category of state, but
+                                it is an important one. In many cases, a lot of major parts of our
+                                application rely upon accessing URL state. Try to imagine building a
+                                blog without being able to fetch a post based off of its slug or id
+                                that is located in the URL! There are undoubtedly more pieces of
+                                state that we could identify, but these are the major categories
+                                worth focusing on for most applications you build.
                             </div>
                         </div>
                     </div>
@@ -41,7 +76,7 @@ export default function BlogSection() {
                                 aria-expanded="false"
                                 aria-controls="collapseTwo"
                             >
-                                What is JWT, and how does it work?
+                                How does prototypical inheritance work?
                             </button>
                         </h2>
                         <div
@@ -51,40 +86,11 @@ export default function BlogSection() {
                             data-bs-parent="#blog"
                         >
                             <div className="accordion-body">
-                                JSON Web Token (JWT) is an open standard (RFC 7519) for securely
-                                transmitting information between parties as JSON object. It is
-                                compact, readable and digitally signed using a private key/ or a
-                                public key pair by the Identity Provider(IdP). So the integrity and
-                                authenticity of the token can be verified by other parties involved.
-                                The purpose of using JWT is not to hide data but to ensure the
-                                authenticity of the data. JWT is signed and encoded, not encrypted.
-                                JWT is a token based stateless authentication mechanism. Since it is
-                                a client-side based stateless session, server doesn&apos;t have to
-                                completely rely on a datastore(database) to save session
-                                information.
-                                <br />
-                                <strong>How it works?</strong>
-                                <br />
-                                Basically the identity provider(IdP) generates a JWT certifying user
-                                identity and Resource server decodes and verifies the authenticity
-                                of the token using secret salt/public key.
-                                <ul>
-                                    <li>
-                                        User sign-in using username and password or google/facebook.
-                                    </li>
-                                    <li>
-                                        Authentication server verifies the credentials and issues a
-                                        jwt signed using either a secret salt or a private key
-                                    </li>
-                                    <li>
-                                        User&apos;s Client uses the JWT to access protected
-                                        resources by passing the JWT in HTTP Authorization header.
-                                    </li>
-                                    <li>
-                                        Resource server then verifies the authenticity of the token
-                                        using the secret salt/ public key.
-                                    </li>
-                                </ul>
+                                The Prototypal Inheritance is a feature in javascript used to add
+                                methods and properties in objects. It is a method by which an object
+                                can inherit the properties and methods of another object.
+                                Traditionally, in order to get and set the [[Prototype]] of an
+                                object, we use Object. getPrototypeOf and Object.
                             </div>
                         </div>
                     </div>
@@ -98,7 +104,7 @@ export default function BlogSection() {
                                 aria-expanded="false"
                                 aria-controls="collapseThree"
                             >
-                                What is the difference between javascript and NodeJS?
+                                What is a unit test? Why should we write unit tests?
                             </button>
                         </h2>
                         <div
@@ -108,12 +114,11 @@ export default function BlogSection() {
                             data-bs-parent="#blog"
                         >
                             <div className="accordion-body">
-                                JavaScript is a simple programming language that can be used with
-                                any browser that has the JavaScript Engine installed. Node.js, on
-                                the other hand, is an interpreter or execution environment for the
-                                JavaScript programming language. It requires libraries that can be
-                                conveniently accessed from JavaScript programming to be more
-                                helpful.
+                                The main objective of unit testing is to isolate written code to
+                                test and determine if it works as intended. Unit testing is an
+                                important step in the development process, because if done
+                                correctly, it can help detect early flaws in code which may be more
+                                difficult to find in later testing stages.
                             </div>
                         </div>
                     </div>
@@ -127,7 +132,7 @@ export default function BlogSection() {
                                 aria-expanded="false"
                                 aria-controls="collapseFour"
                             >
-                                How does NodeJS handle multiple requests at the same time?
+                                React vs. Angular vs. Vue?
                             </button>
                         </h2>
                         <div
@@ -137,15 +142,54 @@ export default function BlogSection() {
                             data-bs-parent="#blog"
                         >
                             <div className="accordion-body">
-                                When you say Node.JS can handle 10,000 concurrent requests they are
-                                essentially non-blocking requests i.e. these requests are majorly
-                                pertaining to database query. Internally, event loop of Node.JS is
-                                handling a thread pool, where each thread handles a non-blocking
-                                request and event loop continues to listen to more request after
-                                delegating work to one of the thread of the thread pool. When one of
-                                the thread completes the work, it send a signal to the event loop
-                                that it has finished aka callback. Event loop then process this
-                                callback and send the response back.
+                                <strong>Angular vs React</strong>
+                                <br />
+                                If the choice your&apos;e making is based on Angular vs React alone,
+                                then you&apos;ll simply need to consider the pros and cons discussed
+                                for those libraries in this post. But overall, keep in mind that
+                                both libraries can be used for mobile and web apps, while Angular is
+                                generally better for more complex apps that are enterprise-ready.
+                                React often requires extra modules and components, which keeps the
+                                core library small, but means theres extra work involved when
+                                incorporating outside tools. Angular, on the other hand, is more of
+                                a full-fledged solution that doesnt require extras like React often
+                                does, though it does have a steeper learning curve for its core
+                                compared to React. React is more suitable for intermediate to
+                                advanced JavaScript developers who are familiar with concepts from
+                                ES6 and up, while Angular favors those same developers who are also
+                                familiar with TypeScript.
+                                <br />
+                                <strong>React vs Vue</strong>
+                                <br />
+                                The choice between React vs Vue is often debated and it&apos;s not
+                                an easy one. Vue has a vibrant and ever-growing community and has
+                                taken over popularity vs. React in many respects. React developers
+                                are still churning out lots of new components and extras, so
+                                there&apos;s no sign that React is on the decline either. Vue is
+                                generally more suited to smaller, less complex apps and is easier to
+                                learn from scratch compared to React. Vue can be easier to integrate
+                                into new or existing projects and many feel its use of HTML
+                                templates along with JSX is an advantage. Overall, Vue might be the
+                                best choice if you&apos;re a newer developer and not as familiar
+                                with advanced JavaScript concepts, while React is quite well suited
+                                for experienced programmers and developers who have worked with
+                                object-oriented JavaScript, functional JavaScript, and similar
+                                concepts.
+                                <br />
+                                <strong>Angular vs Vue</strong>
+                                <br />
+                                In most cases, you probably wouldn&apos;t be deciding between only
+                                Angular and Vue. They are vastly different libraries with very
+                                different feature sets and learning curves. Vue is the clear choice
+                                for less experienced developers, and Angular would be preferred for
+                                those working on larger apps. A large library like Angular would
+                                require more diligence in keeping up with what&apos;s new, while Vue
+                                would be less demanding in this regard and the fact that the two
+                                most recent major releases of Vue are in separate repositories
+                                helps. It should also be noted that Vue was created by a developer
+                                who formerly worked on Angular for Google, so that&apos;s another
+                                thing to keep in mind, though that wouldn&apos;t have a huge impact
+                                on your decision.
                             </div>
                         </div>
                     </div>
