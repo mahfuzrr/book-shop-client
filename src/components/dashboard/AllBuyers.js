@@ -20,7 +20,6 @@ export default function AllBuyers() {
                 .then((result) => {
                     result.json().then((upResult) => {
                         if (upResult?.success) {
-                            console.log(upResult.message);
                             setData(upResult.message);
                         }
                     });
@@ -85,7 +84,11 @@ export default function AllBuyers() {
                         {data.map((elem) => (
                             <tr key={elem?._id}>
                                 <td>
-                                    <img src={elem?.photoURL} alt="user" />
+                                    <img
+                                        referrerPolicy="no-referrer"
+                                        src={elem?.photoURL}
+                                        alt="user"
+                                    />
                                 </td>
                                 <td>{elem?.name}</td>
                                 <td>{elem?.email}</td>

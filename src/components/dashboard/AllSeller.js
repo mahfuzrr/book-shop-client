@@ -85,7 +85,11 @@ export default function AllSeller() {
                         {data.map((elem) => (
                             <tr key={elem?._id}>
                                 <td>
-                                    <img src={elem?.photoURL} alt="user" />
+                                    <img
+                                        referrerPolicy="no-referrer"
+                                        src={elem?.photoURL}
+                                        alt="user"
+                                    />
                                 </td>
                                 <td>{elem?.name}</td>
                                 <td>{elem?.email}</td>
