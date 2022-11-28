@@ -1,10 +1,17 @@
 ### Project Name: `Book Shop`
 
-### Live website Link: [https://dream-travel-4e765.web.app/](https://dream-travel-4e765.web.app/)
+### Live website Link: [https://book-shop-a0e62.web.app/](https://book-shop-a0e62.web.app/)
 
 ### Description:
 
 This is a used book selling and buying platform. User can buy used book from here
+
+## Admin
+
+- adminEmail:
+  > bookshopadmin@gmail.com
+- adminPassword:
+  > admin456
 
 ### Features
 
