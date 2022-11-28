@@ -427,6 +427,18 @@ footer a {
     display: none;
 }
 
+#user-avatar {
+    position: relative;
+}
+
+#user-avatar span {
+    position: absolute;
+    top: -10%;
+    right: -35%;
+    font-size: 1rem;
+    color: rgb(22, 202, 28);
+}
+
 @media only screen and (max-width: 400px) {
     #footer-main {
         flex-direction: column;

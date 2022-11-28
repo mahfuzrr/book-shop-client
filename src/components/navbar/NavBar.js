@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { MdVerified, MdMenu } from 'react-icons/md';
 import userImage from '../../assets/user.png';
 import { AuthContext } from '../../context/UserContext';
 
 export default function NavBar() {
     const [url, setUrl] = useState('');
+    const [isVarified, setIsVerified] = useState(false);
 
     const navigate = useNavigate();
 
@@ -13,7 +15,21 @@ export default function NavBar() {
 
     useEffect(() => {
         setUrl(window.location.pathname);
-    }, []);
+        if (user) {
+            fetch(`http://localhost:5000/get-verify-info/${user.uid}`, {
+                method: 'GET',
+                headers: {
+                    authorization: localStorage.getItem('token'),
+                },
+            }).then((res) => {
+                res.json().then((upRes) => {
+                    if (upRes?.success) {
+                        setIsVerified(upRes?.message);
+                    }
+                });
+            });
+        }
+    }, [user]);
 
     const location = useLocation();
     const from = location.state?.from?.pathaname || '/login';
@@ -50,7 +66,7 @@ export default function NavBar() {
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <i className="fa-solid fa-bars" />
+                    <MdMenu />
                 </button>
                 <div className="collapse navbar-collapse" id="navToggler">
                     <ul className="navbar-nav ms-auto me-md-3 mb-2 mb-lg-0" id="navItem">
@@ -88,6 +104,11 @@ export default function NavBar() {
                                     src={user?.photoURL ? user?.photoURL : userImage}
                                     alt="user"
                                 />
+                                {isVarified && (
+                                    <span>
+                                        <MdVerified />
+                                    </span>
+                                )}
                             </li>
                         )}
                         <li className="nav-item">
