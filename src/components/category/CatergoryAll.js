@@ -107,6 +107,35 @@ export default function CategoryAll() {
         setRefetch(true);
     };
 
+    const handleReport = (bookId1) => {
+        const reqObj = { id: bookId1, uid: user.uid };
+
+        fetch('http://localhost:5000/report-to-admin', {
+            method: 'PATCH',
+            body: JSON.stringify(reqObj),
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: localStorage.getItem('token'),
+            },
+        })
+            .then((data) => {
+                data.json().then((res) => {
+                    if (res?.success) {
+                        toast.success('Reported!', {
+                            position: toast.POSITION.TOP_RIGHT,
+                            autoClose: 1000,
+                        });
+                    }
+                });
+            })
+            .catch((err) => {
+                toast.success(err.message, {
+                    position: toast.POSITION.TOP_RIGHT,
+                    autoClose: 1000,
+                });
+            });
+    };
+
     return (
         <div className="container pb-5 min-vh-100" id="all-category">
             <ToastContainer />
@@ -168,7 +197,11 @@ export default function CategoryAll() {
                                                 <p className="m-0 advertise-book-name">
                                                     {data?.productName}
                                                 </p>
-                                                <button type="button" className="btn report-btn">
+                                                <button
+                                                    type="button"
+                                                    className="btn report-btn"
+                                                    onClick={() => handleReport(data._id)}
+                                                >
                                                     Report to admin
                                                 </button>
                                             </div>
