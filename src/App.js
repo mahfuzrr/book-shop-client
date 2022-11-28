@@ -7,6 +7,7 @@ import Category from './pages/Category';
 import Dasbord from './pages/Dashboard';
 import Home from './pages/Home';
 import LogIn from './pages/LogIn';
+import Payment from './pages/Payment';
 import SignUp from './pages/SignUp';
 
 function App() {
@@ -30,6 +31,14 @@ function App() {
                     element={
                         <PrivateRoute>
                             <Category />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/payment/:bookid"
+                    element={
+                        <PrivateRoute>
+                            <Payment />
                         </PrivateRoute>
                     }
                 />

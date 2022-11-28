@@ -125,12 +125,12 @@ export default function MyProduct({ fetchh }) {
                                 <td>{product?.resalePrice}</td>
                                 <td
                                     className={`text-center ${
-                                        product?.isAvailable && !product?.isBooked
+                                        product?.isAvailable && !product?.isPaid
                                             ? 'available'
                                             : 'sold'
                                     }`}
                                 >
-                                    {product?.isAvailable && !product?.isBooked
+                                    {product?.isAvailable && !product?.isPaid
                                         ? 'Available'
                                         : 'Sold'}
                                 </td>
@@ -138,7 +138,7 @@ export default function MyProduct({ fetchh }) {
                                     <button
                                         type="button"
                                         className="btn create-advirtise-btn"
-                                        disabled={product?.isBooked}
+                                        disabled={product?.isPaid}
                                         onClick={() => handleAdvertise(product?._id)}
                                     >
                                         Advertise

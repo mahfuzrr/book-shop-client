@@ -47,6 +47,22 @@
     color: var(--primary);
 }
 
+#payment-btn {
+    background-color: var(--primary);
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin-top: 5%;
+}
+
+#payment-btn:focus {
+    box-shadow: none;
+}
+
+#payment-btn:active {
+    transform: scale(0.98);
+}
+
 @media only screen and (max-width: 1000px) {
     #nodata-image img {
         width: 50%;

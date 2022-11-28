@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
 
@@ -7,6 +8,8 @@ export default function MyOrders() {
     const [orders, setOrders] = useState([]);
 
     const { user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
@@ -44,6 +47,10 @@ export default function MyOrders() {
     };
 
     const getDiff = (date) => Math.floor(Math.abs(Date.now() - convertDate(date)));
+
+    const handleNavigate = (prodId) => {
+        navigate(`/payment/${prodId}`);
+    };
 
     return (
         <div
@@ -93,6 +100,7 @@ export default function MyOrders() {
                                     type="button"
                                     className="btn advertise-card-btn mt-3 text-center"
                                     disabled={!!data?.paymentDetails}
+                                    onClick={() => handleNavigate(data._id)}
                                 >
                                     {data?.paymentDetails ? 'Paid' : 'Pay'}
                                 </button>

@@ -60,6 +60,35 @@
     box-shadow: none;
 }
 
+:root {
+    --primary: #f8792f;
+    --navBg: #FEFEFE;
+    --text1: #5E5E5E;
+    --border: #cccccc;
+}
+
+#payment-contents {
+    margin-top: 5%;
+}
+
+#payment-left .payment-card {
+    width: 300px;
+    border: 1px solid var(--border);
+}
+
+#payment-left .payment-card .payment-card-all-text .payment-card-upper-text p {
+    color: var(--text1);
+    font-size: 14px;
+}
+
+#payment-right form {
+    width: 90%;
+}
+
+#payment-right p {
+    font-size: 18px;
+    font-weight: 500;
+}
 
 @media only screen and (max-width: 765px) {
 

@@ -179,7 +179,7 @@ export default function CategoryAll() {
                 {allData.length > 0 ? (
                     allData.map(
                         (data) =>
-                            !data?.isBooked && (
+                            !data?.isPaid && (
                                 <div
                                     key={data._id}
                                     className="container p-0 d-flex flex-column advertise-main-contents-single-card"

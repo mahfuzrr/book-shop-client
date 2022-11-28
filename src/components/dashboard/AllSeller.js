@@ -20,7 +20,6 @@ export default function AllSeller() {
                 .then((result) => {
                     result.json().then((upResult) => {
                         if (upResult?.success) {
-                            console.log(upResult.message);
                             setData(upResult.message);
                         }
                     });
