@@ -43,7 +43,7 @@ export default function AllSeller() {
             .then((res) => {
                 res.json().then((upRes) => {
                     if (upRes?.success) {
-                        setRefetch(true);
+                        setRefetch(!refetch);
                         toast.success('Deleted Successful!', {
                             position: toast.POSITION.TOP_RIGHT,
                             autoClose: 1000,
@@ -78,6 +78,7 @@ export default function AllSeller() {
         }).then((res) => {
             res.json().then((upRes) => {
                 if (upRes?.success) {
+                    setRefetch(!refetch);
                     toast.success('Verified successful!', {
                         position: toast.POSITION.TOP_RIGHT,
                         autoClose: 1000,
