@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
@@ -151,7 +152,7 @@ export default function LogLeft() {
                         onClick={handleSignInUsingGoogle}
                     >
                         <span className="me-5">
-                            <i className="fa-brands fa-google" />
+                            <FcGoogle />
                         </span>{' '}
                         Login with Google
                     </button>

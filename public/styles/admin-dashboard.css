@@ -81,11 +81,31 @@ th {
     font-size: 0.9rem;
 }
 
+#admin-buyer .verify {
+    background-color: rgb(6, 183, 6);
+}
+
+#admin-seller .verify {
+    background-color: rgb(6, 183, 6);
+}
+
 #admin-buyer tbody td,
 th {
     border: 1px solid var(--border);
     text-align: center;
     padding: 11px;
+}
+
+#verified-img {
+    position: relative;
+}
+
+#verified-img span {
+    position: absolute;
+    top: 8px;
+    right: 25%;
+    color: rgb(6, 183, 6);
+    font-size: 1rem;
 }
 
 #admin-buyer tbody td {

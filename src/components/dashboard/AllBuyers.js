@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { useContext, useEffect, useState } from 'react';
+import { MdVerified } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
 
@@ -63,6 +64,30 @@ export default function AllBuyers() {
             });
     };
 
+    const handleVerify = (uId) => {
+        const obj = {
+            uId,
+        };
+        fetch(`http://localhost:5000/verify-user/${user.uid}`, {
+            method: 'PATCH',
+            body: JSON.stringify(obj),
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: localStorage.getItem('token'),
+            },
+        }).then((res) => {
+            res.json().then((upRes) => {
+                if (upRes?.success) {
+                    setRefetch(true);
+                    toast.success('Verified successful!', {
+                        position: toast.POSITION.TOP_RIGHT,
+                        autoClose: 1000,
+                    });
+                }
+            });
+        });
+    };
+
     return (
         <div
             className="tab-pane fade"
@@ -83,16 +108,28 @@ export default function AllBuyers() {
                     <tbody>
                         {data.map((elem) => (
                             <tr key={elem?._id}>
-                                <td>
+                                <td id="verified-img">
                                     <img
                                         referrerPolicy="no-referrer"
                                         src={elem?.photoURL}
                                         alt="user"
                                     />
+                                    {elem?.isVarified && (
+                                        <span>
+                                            <MdVerified />
+                                        </span>
+                                    )}
                                 </td>
                                 <td>{elem?.name}</td>
                                 <td>{elem?.email}</td>
                                 <td>
+                                    <button
+                                        type="button"
+                                        className="btn verify  me-lg-3"
+                                        onClick={() => handleVerify(elem?.userId)}
+                                    >
+                                        Verify
+                                    </button>
                                     <button
                                         type="button"
                                         className="btn create-advirtise-btn"

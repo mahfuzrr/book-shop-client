@@ -22,7 +22,6 @@ export default function MyOrders() {
                 .then((result) => {
                     result.json().then((data) => {
                         if (data?.success) {
-                            console.log(data?.message);
                             setOrders(data?.message);
                         } else {
                             toast.error(data?.message, {
