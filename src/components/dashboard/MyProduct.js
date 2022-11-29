@@ -122,7 +122,7 @@ export default function MyProduct({ fetchh }) {
                             <tr key={product?._id}>
                                 <td>{product?.productName}</td>
                                 <td>{product?.originalPrice}$</td>
-                                <td>{product?.resalePrice}</td>
+                                <td>{product?.resalePrice}$</td>
                                 <td
                                     className={`text-center ${
                                         product?.isAvailable && !product?.isPaid

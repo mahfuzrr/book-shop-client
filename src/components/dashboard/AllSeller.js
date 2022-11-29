@@ -114,9 +114,11 @@ export default function AllSeller() {
                                         src={elem?.photoURL}
                                         alt="user"
                                     />
-                                    <span>
-                                        <MdVerified />
-                                    </span>
+                                    {elem?.isVarified && (
+                                        <span>
+                                            <MdVerified />
+                                        </span>
+                                    )}
                                 </td>
                                 <td>{elem?.name}</td>
                                 <td>{elem?.email}</td>
