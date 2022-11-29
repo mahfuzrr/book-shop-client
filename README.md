@@ -25,8 +25,12 @@ This is a used book selling and buying platform. User can buy used book from her
   > It will add products which will be added by seller
 - Delete Products
   > It will delete the products which will be added by seller
+- Book Products
+  > Users can book a product to buy it later
 - Buy Products
   > User can buy used books
+- Payment System
+  > Users can use their credit card to buy products
 - Blog
   > From here you can know about some important topics
 

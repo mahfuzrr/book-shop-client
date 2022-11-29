@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
 import Advertise from '../components/home/Advertise';
 import Banner from '../components/home/Banner';
@@ -18,6 +19,7 @@ export default function Home() {
     return (
         <>
             <NavBar />
+            <ToastContainer />
             <Banner />
             <Category />
             <Advertise />
