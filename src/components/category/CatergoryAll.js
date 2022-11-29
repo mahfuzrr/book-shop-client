@@ -138,7 +138,7 @@ export default function CategoryAll() {
     };
 
     const getVerified = (uid) => {
-        fetch(`http://localhost:5000/get-verify-info/${uid}`, {
+        fetch(`https://book-server-six.vercel.app/get-verify-info/${uid}`, {
             method: 'GET',
             headers: {
                 authorization: localStorage.getItem('token'),
