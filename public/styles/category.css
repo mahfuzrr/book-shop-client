@@ -40,6 +40,11 @@
     font-weight: 500;
 }
 
+#all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .verify span {
+    color: #0652DD;
+    margin-left: 2px;
+}
+
 #all-category-content .advertise-main-contents-single-card .advertise-contents-texts .advertise-lower-text .advertise-card-posted {
     font-size: 0.8rem;
     color: var(--text1);

@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { useContext, useEffect, useState } from 'react';
+import { MdVerified } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import noDataImage from '../../assets/NoData.svg';
 import { AuthContext } from '../../context/UserContext';
 import useRole from '../useRole';
 
@@ -17,6 +17,7 @@ export default function CategoryAll() {
     const [location, setLocation] = useState('');
     const [bookId, setBookId] = useState('');
     const [refetch, setRefetch] = useState(false);
+    const [isVarified, setIsVerified] = useState(false);
 
     const { id } = useParams();
 
@@ -136,6 +137,23 @@ export default function CategoryAll() {
             });
     };
 
+    const getVerified = (uid) => {
+        fetch(`http://localhost:5000/get-verify-info/${uid}`, {
+            method: 'GET',
+            headers: {
+                authorization: localStorage.getItem('token'),
+            },
+        }).then((res) => {
+            res.json().then((upResult) => {
+                if (upResult?.success) {
+                    setIsVerified(upResult?.message);
+                }
+            });
+        });
+
+        return true;
+    };
+
     return (
         <div className="container pb-5 min-vh-100" id="all-category">
             <ToastContainer />
@@ -176,97 +194,83 @@ export default function CategoryAll() {
             </div>
             <div className="container-fluid row gap-4 p-0" id="all-category-content">
                 {/* <!-- single --> */}
-                {allData.length > 0 ? (
-                    allData.map(
-                        (data) =>
-                            !data?.isPaid && (
-                                <div
-                                    key={data._id}
-                                    className="container p-0 d-flex flex-column advertise-main-contents-single-card"
-                                >
-                                    <div className="container-fluid p-0 advertise-contents-card-image">
-                                        <img
-                                            className="img-fluid"
-                                            src={data?.photoURL}
-                                            alt="book"
-                                        />
-                                    </div>
-                                    <div className="container-fluid p-0 advertise-contents-texts">
-                                        <div className="container-fluid mt-3 advertise-upper-text ps-4">
-                                            <div className="container-fluid p-0 d-flex justify-content-between align-items-center upper-section">
-                                                <p className="m-0 advertise-book-name">
-                                                    {data?.productName}
-                                                </p>
-                                                <button
-                                                    type="button"
-                                                    className="btn report-btn"
-                                                    onClick={() => handleReport(data._id)}
-                                                >
-                                                    Report to admin
-                                                </button>
-                                            </div>
-                                            <p className="m-0 advertise-location">
-                                                Location: {data?.location}
-                                            </p>
-                                        </div>
-                                        <div className="container-fluid advertise-lower-text mt-3 pb-3 ps-4 pe-4">
-                                            <p className="m-0 advertise-card-common-text">
-                                                Original price: {`$${data?.originalPrice}`}
-                                            </p>
-                                            <p className="m-0 advertise-card-common-text">
-                                                Resale price: {`$${data.resalePrice}`}
-                                            </p>
-                                            <p className="m-0 advertise-card-common-text">
-                                                Usage: {`${data?.purchageYear} year`}
-                                            </p>
-                                            <p className="m-0 advertise-card-common-text">
-                                                Seller: {data?.sellerName}
-                                            </p>
-                                            <p className="m-0 advertise-card-posted">
-                                                Posted:{' '}
-                                                {Math.floor(getDiff(data?.posted) / 36e5) > 0
-                                                    ? `${Math.floor(
-                                                          getDiff(data?.posted) / 36e5
-                                                      )} hours`
-                                                    : `${Math.floor(
-                                                          getDiff(data?.posted) / 1000 / 60
-                                                      )} minutes`}{' '}
-                                                ago
+                {allData.map(
+                    (data) =>
+                        !data?.isPaid && (
+                            <div
+                                key={data._id}
+                                className="container p-0 d-flex flex-column advertise-main-contents-single-card"
+                            >
+                                <div className="container-fluid p-0 advertise-contents-card-image">
+                                    <img className="img-fluid" src={data?.photoURL} alt="book" />
+                                </div>
+                                <div className="container-fluid p-0 advertise-contents-texts">
+                                    <div className="container-fluid mt-3 advertise-upper-text ps-4">
+                                        <div className="container-fluid p-0 d-flex justify-content-between align-items-center upper-section">
+                                            <p className="m-0 advertise-book-name">
+                                                {data?.productName}
                                             </p>
                                             <button
                                                 type="button"
-                                                className="btn advertise-card-btn mt-3 text-center"
-                                                disabled={role !== 'buyer'}
-                                                onClick={() =>
-                                                    setModalValue(
-                                                        data?.productName,
-                                                        data?.resalePrice,
-                                                        data?._id
-                                                    )
-                                                }
+                                                className="btn report-btn"
+                                                onClick={() => handleReport(data._id)}
                                             >
-                                                {role === 'buyer'
-                                                    ? 'Book Now'
-                                                    : 'Buyer are allowed to buy'}
+                                                Report to admin
                                             </button>
                                         </div>
+                                        <p className="m-0 advertise-location">
+                                            Location: {data?.location}
+                                        </p>
+                                    </div>
+                                    <div className="container-fluid advertise-lower-text mt-3 pb-3 ps-4 pe-4">
+                                        <p className="m-0 advertise-card-common-text">
+                                            Original price: {`$${data?.originalPrice}`}
+                                        </p>
+                                        <p className="m-0 advertise-card-common-text">
+                                            Resale price: {`$${data.resalePrice}`}
+                                        </p>
+                                        <p className="m-0 advertise-card-common-text">
+                                            Usage: {`${data?.purchageYear} year`}
+                                        </p>
+                                        <p className="m-0 advertise-card-common-text verify">
+                                            Seller: {data?.sellerName}
+                                            {getVerified(data?.userId) && isVarified && (
+                                                <span>
+                                                    <MdVerified />
+                                                </span>
+                                            )}
+                                        </p>
+                                        <p className="m-0 advertise-card-posted">
+                                            Posted:{' '}
+                                            {Math.floor(getDiff(data?.posted) / 36e5) > 0
+                                                ? `${Math.floor(
+                                                      getDiff(data?.posted) / 36e5
+                                                  )} hours`
+                                                : `${Math.floor(
+                                                      getDiff(data?.posted) / 1000 / 60
+                                                  )} minutes`}{' '}
+                                            ago
+                                        </p>
+                                        <button
+                                            type="button"
+                                            className="btn advertise-card-btn mt-3 text-center"
+                                            disabled={role !== 'buyer'}
+                                            onClick={() =>
+                                                setModalValue(
+                                                    data?.productName,
+                                                    data?.resalePrice,
+                                                    data?._id
+                                                )
+                                            }
+                                        >
+                                            {role === 'buyer'
+                                                ? 'Book Now'
+                                                : 'Only Buyer are allowed to buy'}
+                                        </button>
                                     </div>
                                 </div>
-                            )
-                    )
-                ) : (
-                    <div
-                        className="container-fluid d-flex flex-column justify-content-center align-items-center"
-                        id="nodata"
-                    >
-                        <div
-                            className="container-fluid d-flex justify-content-center"
-                            id="nodata-image"
-                        >
-                            <img src={noDataImage} alt="nodata" />
-                        </div>
-                        <p>No item available!</p>
-                    </div>
+                            </div>
+                        )
                 )}
             </div>
         </div>

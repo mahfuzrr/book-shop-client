@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/UserContext';
@@ -111,22 +112,35 @@ export default function Advertise() {
     };
 
     useEffect(() => {
-        fetch('https://book-server-six.vercel.app/get-advertise-items', {
-            method: 'GET',
-            headers: {
-                authorization: localStorage.getItem('token'),
-            },
-        })
-            .then((result) => {
-                result.json().then((upResult) => {
-                    if (upResult?.success) {
-                        setData(upResult?.message);
-                    }
-                });
+        // fetch('https://book-server-six.vercel.app/get-advertise-items', {
+        //     method: 'GET',
+        //     headers: {
+        //         authorization: localStorage.getItem('token'),
+        //     },
+        // })
+        //     .then((result) => {
+        //         result.json().then((upResult) => {
+        //             if (upResult?.success) {
+        //                 setData(upResult?.message);
+        //             }
+        //         });
+        //     })
+        //     .catch((err) => {
+        //         console.log(err.message);
+        //     });
+
+        axios
+            .get('https://book-server-six.vercel.app/get-advertise-items', {
+                headers: {
+                    authorization: localStorage.getItem('token'),
+                },
             })
-            .catch((err) => {
-                console.log(err.message);
-            });
+            .then((result) => {
+                if (result.data?.success) {
+                    setData(result.data?.message);
+                }
+            })
+            .catch((err) => console.log(err.message));
     }, []);
 
     if (data.length === 0) {
@@ -241,7 +255,9 @@ export default function Advertise() {
                                             )
                                         }
                                     >
-                                        {role === 'buyer' ? 'Book Now' : 'Buyer are allowed to buy'}
+                                        {role === 'buyer'
+                                            ? 'Book Now'
+                                            : 'Only Buyer are allowed to buy'}
                                     </button>
                                 </div>
                             </div>
